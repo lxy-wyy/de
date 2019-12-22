@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.buba.de.dao.UserDao">
+
+    <!--User getUser(User u);-->
+    <select id="getUser" resultType="com.buba.de.pojo.User">
+      select * from user where bianhao=#{bianhao} and password=#{password}
+    </select>
+
+
+    <!--List<Limits> getlimits(Integer id);-->
+    <select id="getlimits" resultType="com.buba.de.pojo.Limits">
+        SELECT limits.*
+        FROM USER,user_role,role,limits,r_limit
+        WHERE user.id=user_role.`uid`
+        AND user_role.`rid`=role.`id`
+        AND role.`id`=r_limit.`role_id`
+        AND r_limit.`limit_id`=limits.`id`
+        AND user.id=#{id}
+    </select>
+
+    <!--List<Limits> getli();-->
+    <select id="getli" resultType="com.buba.de.pojo.Limits">
+        select * from limits
+    </select>
+
+    <!--int insrtLimtis(Limits l);-->
+    <insert id="insrtLimtis" parameterType="com.buba.de.pojo.Limits">
+      insert into limits() values ()
+    </insert>
+
+    <delete id="" parameterType="int">
+
+    </delete>
+
+    <update id="" parameterType="com.buba.de.pojo.Limits">
+
+    </update>
+
+</mapper>
