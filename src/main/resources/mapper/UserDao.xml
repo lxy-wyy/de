@@ -26,15 +26,17 @@
 
     <!--int insrtLimtis(Limits l);-->
     <insert id="insrtLimtis" parameterType="com.buba.de.pojo.Limits">
-      insert into limits() values ()
+      insert into limits(name,pid) values (#{name},#{pid})
     </insert>
 
-    <delete id="" parameterType="int">
-
+    <!--int delLi(int id)-->
+    <delete id="delLi" parameterType="int">
+      delete from limits where id=#{id}
     </delete>
 
-    <update id="" parameterType="com.buba.de.pojo.Limits">
-
+    <!--int updateli(Limits li)-->
+    <update id="updateli" parameterType="com.buba.de.pojo.Limits">
+    update limits set name=#{name},pid={pid}
     </update>
 
 </mapper>
